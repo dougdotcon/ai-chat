@@ -1,41 +1,78 @@
-# <img src="https://raw.githubusercontent.com/ksdev-pl/ai-chat/master/public/icon-192.png" alt="Logo" width="25" height="25"/> AI Chat
+# <img src="https://raw.githubusercontent.com/ksdev-pl/ai-chat/master/public/icon-192.png" alt="Logo" width="25" height="25"/> OpenAI Chat
 
-### 🔗 [aichat.ksdev.pl](https://aichat.ksdev.pl)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+🔗 **[aichat.ksdev.pl](https://aichat.ksdev.pl)**
 
 ![Screenshot](.github/screenshot.jpg)
 
-Yet another AI chat with original name. Currenly connects only to OpenAI models.
+## Overview
 
-Works purely in the browser, with no backend/server communication. Data is stored locally in IndexedDB.
+**OpenAI Chat** is a modern, serverless web client designed for seamless interaction with OpenAI's language models. It prioritizes user privacy by operating entirely within the browser, ensuring that no data is ever sent to a backend server.
 
-I coded it for my own use.
+### Key Features
 
-### Project Setup
+*   **100% Client-Side:** No backend required. Runs directly in your browser.
+*   **Enhanced Privacy:** Your API key, chat history, and settings are stored locally using IndexedDB.
+*   **Markdown Support:** Rich text formatting with full Markdown rendering for code, lists, and more.
+*   **Conversation History:** Persistent chat sessions saved locally.
+*   **Modern UI:** Clean, responsive, and fast user interface built with Vue.js.
+*   **Docker Ready:** Easy deployment with a single `docker compose` command.
 
-```sh
-npm install
-```
+## Prerequisites
 
-### Compile and Hot-Reload for Development
+*   Node.js (v18+)
+*   A valid [OpenAI API Key](https://platform.openai.com/account/api-keys)
 
-```sh
-npm run dev
-```
+## Getting Started
 
-### Type-Check, Compile and Minify for Production
+### Development
 
-```sh
+1.  **Install dependencies:**
+    sh
+    npm install
+    
+
+2.  **Run the development server:**
+    sh
+    npm run dev
+    
+
+3.  Open your browser and navigate to the local URL provided (usually `http://localhost:5173`).
+
+### Production Build
+
+To compile and minify for production:
+
+sh
 npm run build
-```
 
-### Run with Docker
 
-```sh
-docker compose up # http://localhost:5173
-```
+The built files will be available in the `dist` directory.
 
-With a custom port:
+### Deployment with Docker
 
-```sh
+A `docker-compose.yml` file is included for easy setup.
+
+sh
+# Start the container
+ docker compose up
+
+
+To run on a custom port (e.g., 8080):
+
+sh
 PORT=8080 docker compose up
-```
+
+
+The application will be available at `http://localhost:5173` (or your custom port).
+
+## Architecture & Security
+
+*   **Serverless:** The application is a static Single Page Application (SPA). It does not have a backend API.
+*   **Data Isolation:** All sensitive data is handled client-side. Communication happens directly between your browser and OpenAI's servers.
+*   **State Management:** Uses the browser's `IndexedDB` for robust and asynchronous storage of chat logs and configuration.
+
+## License
+
+This project is open-source and licensed under the MIT License.
